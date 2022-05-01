@@ -14,7 +14,7 @@ Time: O(n), need to visit all nodes
 Space: 
 - Iteration = O(n) worst case if need to store all vertices in the queue
 
-Use Case: 
+## Use Cases: 
 - Find the shortest path
 - Find the closer nodes
 - If you know the solution isn't far from the root of the tree
