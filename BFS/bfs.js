@@ -40,9 +40,10 @@ function buildBST(nums) {
     for (const num of nums) {
         tree.insert(num)
     }
+    // console.log("TREE", tree);
     return tree.buildArrayByBFS();
 }
 
-const nums = [9,4,6,20,170,15,1];
+const nums = [9,4,6,20,170,15,1]; // res = [9,4,20,1,6,15,170]
 const res = buildBST(nums);
 console.log("Visited =", res);
