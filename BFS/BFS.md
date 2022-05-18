@@ -19,4 +19,9 @@ Space:
 - Find the closer nodes
 - If you know the solution isn't far from the root of the tree
 - If the tree is very deep and solutions are rare (Using DFS will take too long. It's quicker to finish checking the width first before checking the depth of each side)
+- Who are our closest friends on Facebook? OR closest connection on Linkedin?
+- What are the most related items on Amazon?
+- To convert a graph into a tree
+- To find recommendations
+
 

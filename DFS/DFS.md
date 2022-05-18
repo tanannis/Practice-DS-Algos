@@ -17,6 +17,8 @@ Space:
 - Check if the path exist between two nodes
 - If solutions are frequent but located deep in the tree
 - If the tree is very wide (It's quicker to finish checking the depth of each side first than finish checking the width first, also can save memory)
+- Check if something exist
+- Solve a maze
 
 ## Pre-Order:
 - To copy / clone data

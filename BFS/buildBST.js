@@ -18,32 +18,15 @@ const { BinarySearchTree } = require("../Tree/buildBST");
      res = [9,4,20,1,6,15,170]
 */
 
-// Copy the tree by extending it. This new tree should have all the same methods from the original
-class BST extends BinarySearchTree {
-    // Add BFS method to it
-    buildArrayByBFS() {
-      const visited = [];
-      const queue = [this.root];
-      while (queue.length) {
-          const node = queue.shift();
-          visited.push(node.value);
-          if (node.left) queue.push(node.left);
-          if (node.right) queue.push(node.right);
-      }
-      return visited
-    }
-}
-
 // Now build a tree and call its BFS method
 function buildBST(nums) {
-    const tree = new BST();
+    const tree = new BinarySearchTree();
     for (const num of nums) {
         tree.insert(num)
     }
-    console.log("TREE", tree);
-    return tree.buildArrayByBFS();
+    return tree;
 }
 
-const nums = [9,4,6,20,170,15,1]; // res = [9,4,20,1,6,15,170]
+const nums = [1,4,100,5]; 
 const res = buildBST(nums);
-console.log("Visited =", res);
+console.log("Tree", res);
