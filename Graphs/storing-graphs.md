@@ -21,7 +21,7 @@ Run Time:
 - Storage = O(V^2)
 
 
-### Adjacency List
+### Adjacency List / Hash Table
 - Good to use if your data is not connected / not a lot of connections
 - Nested Arrays: using indexes to show connection, but only works if values of nodes are numeric.
   [
