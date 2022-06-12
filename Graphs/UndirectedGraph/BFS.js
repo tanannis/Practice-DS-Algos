@@ -1,4 +1,4 @@
-/* Iteratively DFS an undirected graph. Return every visited vertex in an array.
+/* BFS an undirected graph. Return every visited vertex in an array.
 
      "BKLYN"
      /  |   \
@@ -18,29 +18,29 @@ const adjacencyList = {
 
 /* 
   start with any vertex (it doesn't have a root like a tree)
-  use a stack to store the whole path of a vertex, 
-  then pop the furthest neighbor out because for DFS we explore the depth first 
+  use a queue to remember what to check next because for BFS, 
+  it's important that we visit current vertex's nearest neighbor first before exploring further
 
-  while there's item in stack
-    set current vertex by poping from stack
+  while there's item in queue
+    set current vertex by shifting from queue
     push current vertex to result arr
     check each neighbor of current vertex
-    if neighbor isn't visited, add it to stack and to visited map
+    if neighbor isn't visited, add it to queue and to visited map
  */
 const traverseGraph = (vertex) => {
   const array = [];
   const visited = {};
-  const stack = [vertex]; 
+  const queue = [vertex]; 
   visited[vertex] = true;  
 
-  while (stack.length) {      
-    const current = stack.pop();  // NYC, SI, QUEENS, LI, BKLYN
-    array.push(current);        // [ NYC, SI, QUEENS, LI, BKLYN ]
+  while (queue.length) {      
+    const current = queue.shift();  
+    array.push(current);        
 
     for (const neighbor of adjacencyList[current]) {
       if (!visited[neighbor]) {   
-        visited[neighbor] = true;   // { NYC, BKLYN, QUEENS, SI, LI }
-        stack.push(neighbor);     // [  ]
+        visited[neighbor] = true;   
+        queue.push(neighbor);     
       }
     }
   }
@@ -48,4 +48,4 @@ const traverseGraph = (vertex) => {
   return array;
 }
 
-console.log(traverseGraph("NYC"))
+console.log(traverseGraph("NYC")) // [ NYC, BKLYN, QUEENS, SI, LI]

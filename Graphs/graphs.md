@@ -34,6 +34,12 @@ Edge - connection between nodes
 5. Unweighted Graph
 - A graph in which each edge has no numerical value
 
+6. Cyclic Graph
+- A graph that has a cycle that can cause infinite loop with don't keep track of the visited nodes
+ 
+7. Acyclic Graph
+- A graph that only goes one way and can't go back
+
 
 ### Traversal
 1. BFS
