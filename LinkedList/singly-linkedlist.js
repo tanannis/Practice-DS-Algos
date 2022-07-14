@@ -80,6 +80,67 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
+  get (index) {
+    if (index < 0 || index >= this.length) return null;
+    let i = 0;   
+    let node = this.head;
+    while (i !== index) {
+      node = node.next;
+      i++;
+    }
+    return node;
+  }
+
+  set (value, index) {
+    let node = this.get(index);
+    if (!node) return false;
+    node.val = value;
+    return true;
+  }
+
+  insert (index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) return this.unshift(val);
+    if (index === this.length) return this.push(val);
+   
+    let newNode = new Node(val);
+    // access the node that will be the prev of the new node
+    let prev = this.get(index - 1);
+    newNode.next = prev.next;
+    prev.next = newNode;
+    this.length++;
+    return true;
+  }
+
+  remove (index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) return this.shift();
+    if (index === this.length) return this.pop();
+
+    // access the node that will be the prev of the node-to-be-removed
+    let prev = this.get(index - 1);
+    let nodeToBeRemoved = prev.next;
+    prev.next = nodeToBeRemoved.next;
+    this.length--;
+    return nodeToBeRemoved;
+  }
+
+  reverse () {
+    let current = this.head;
+    let newtail = this.tail;
+    this.tail = this.head;
+    this.head = newtail;
+
+    let prev = null;
+    while (current) {
+      let next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+    return this.head;
+  }
 }
 
 let list = new SinglyLinkedList();
@@ -88,23 +149,29 @@ list.push("Hello")
 list.push("World")
 list.push("!")
 list.push("99")
-list.pop();
-list.pop();
-list.pop();
-list.pop();
-list.push("000");
-list.push("111");
-list.push("222");
-list.push("333");
-list.shift();
-list.shift();
-list.shift();
-list.shift();
-list.unshift("OK");
-list.unshift("alright");
-list.unshift("Kobe");
+list.reverse();
+// console.log(list.insert(2, "123"))
+// console.log(list.remove(2))
+// console.log(list.get(2));
+// console.log(list.set("!!!!", 2))
+// list.pop();
+// list.pop();
+// list.pop();
+// list.pop();
+// list.push("000");
+// list.push("111");
+// list.push("222");
+// list.push("333");
+// list.shift();
+// list.shift();
+// list.shift();
+// list.shift();
+// list.unshift("OK");
+// list.unshift("alright");
+// list.unshift("Kobe");
 
-console.log(list)
+// console.log(list.head.next)
+console.log(list.head.next)
  
 
 
