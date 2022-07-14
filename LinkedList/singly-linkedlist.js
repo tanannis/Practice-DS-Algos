@@ -141,6 +141,16 @@ class SinglyLinkedList {
     }
     return this.head;
   }
+
+  print () {
+    const arr = [];;
+    let node = this.head;
+    while (node) {
+      arr.push(node.val);
+      node = node.next;
+    }
+    console.log(arr);
+  }
 }
 
 let list = new SinglyLinkedList();
@@ -149,6 +159,7 @@ list.push("Hello")
 list.push("World")
 list.push("!")
 list.push("99")
+list.print();
 list.reverse();
 // console.log(list.insert(2, "123"))
 // console.log(list.remove(2))
@@ -170,8 +181,8 @@ list.reverse();
 // list.unshift("alright");
 // list.unshift("Kobe");
 
-// console.log(list.head.next)
-console.log(list.head.next)
+list.print();
+console.log(list)
  
 
 
