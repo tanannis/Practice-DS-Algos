@@ -19,6 +19,7 @@ class SinglyLinkedList {
     this.tail = null;
   }
 
+  // Insert to back: time = O(1)
   push (val) {
     let node = new Node(val);
     //  If it's the 1st node in the linked list, set the head and tail to the new node.
@@ -34,6 +35,7 @@ class SinglyLinkedList {
     return this;
   }
 
+  // Removal from back: time = O(n)
   pop () {
     if (!this.head) return undefined;
 
@@ -54,7 +56,8 @@ class SinglyLinkedList {
     return this;
   }
 
-  shift() {
+  // time = O(1)
+  shift () {
     if (!this.head) return undefined;
 
     if (this.length === 1) {
@@ -68,6 +71,7 @@ class SinglyLinkedList {
     return this;
   }
 
+  // Insert to front: time = O(1)
   unshift (val) {
     let node = new Node(val);
     if (!this.head) {
@@ -81,6 +85,7 @@ class SinglyLinkedList {
     return this;
   }
 
+  // time = O(n)
   get (index) {
     if (index < 0 || index >= this.length) return null;
     let i = 0;   
@@ -92,6 +97,7 @@ class SinglyLinkedList {
     return node;
   }
 
+  // time = O(n)
   set (value, index) {
     let node = this.get(index);
     if (!node) return false;
@@ -99,6 +105,7 @@ class SinglyLinkedList {
     return true;
   }
 
+  // Insert to middle of linked list: time = O(n)
   insert (index, val) {
     if (index < 0 || index > this.length) return false;
     if (index === 0) return this.unshift(val);
@@ -113,10 +120,11 @@ class SinglyLinkedList {
     return true;
   }
 
+  // Remove from the middle: time = O(n)
   remove (index, val) {
-    if (index < 0 || index > this.length) return false;
+    if (index < 0 || index >= this.length) return false;
     if (index === 0) return this.shift();
-    if (index === this.length) return this.pop();
+    if (index === this.length - 1) return this.pop();
 
     // access the node that will be the prev of the node-to-be-removed
     let prev = this.get(index - 1);
@@ -126,6 +134,7 @@ class SinglyLinkedList {
     return nodeToBeRemoved;
   }
 
+  // time = O(n)
   reverse () {
     let current = this.head;
     let newtail = this.tail;
